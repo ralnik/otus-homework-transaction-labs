@@ -1,0 +1,713 @@
+{
+	"info": {
+		"_postman_id": "ab119c12-9368-4a51-a13d-a51ebe9239dd",
+		"name": "otus-homework-transaction-labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "Создать платеж1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":666, \r\n    \"order_id\":666, \r\n    \"cost\": 666\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":666\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/commit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"commit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать платеж2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":777, \r\n    \"order_id\":777, \r\n    \"cost\": 777\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rollback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":777\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payment/rollback",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"rollback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все транзакции по плажкам",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/payment/getAll",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все платежки",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/payment/getAll",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/payment/config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payment",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coordinator",
+			"item": [
+				{
+					"name": "Создать транзакцию на заказ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"order_id\": 888,\r\n  \"product\": \"iphone12\",\r\n  \"cost\": \"50000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/coordinator/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"coordinator",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все транзакции",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/coordinator/getAll",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"coordinator",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/coordinator/config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"coordinator",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "warehouse",
+			"item": [
+				{
+					"name": "create1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"order_id\": 666,\r\n  \"product\": \"iphone12\",\r\n  \"transaction_id\": \"666\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":666\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/commit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"commit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"order_id\": 777,\r\n  \"product\": \"iphone13\",\r\n  \"transaction_id\": \"777\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rollback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":777\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/commit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"commit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTransactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/getTransactions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"getTransactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "склад",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/getAll",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/warehouse/config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"warehouse",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delivery",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"order_id\": 666,\r\n  \"product\": \"iphone12\",\r\n  \"transaction_id\": \"666\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delivery/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":666\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delivery/commit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"commit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"order_id\": 777,\r\n  \"product\": \"iphone12\",\r\n  \"transaction_id\": 777\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delivery/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rollback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_id\":666\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delivery/rollback",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"rollback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Доставки",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/delivery/getAll",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTransactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/delivery/getTransactions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"getTransactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/delivery/config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delivery",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Создать заказ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-id",
+						"value": "1234567890",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"order_id\": 1,\r\n  \"product\": \"iphone12\",\r\n  \"cost\": 50000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/order/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверить заказ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/order/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/order/config",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						"config"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true;",
+					"tests[\"[INFO] Response: \" + responseBody] = true;"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "IDtoken",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "email",
+			"value": ""
+		},
+		{
+			"key": "login",
+			"value": ""
+		},
+		{
+			"key": "firstName",
+			"value": ""
+		},
+		{
+			"key": "lastName",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://arch.homework"
+		},
+		{
+			"key": "randomNum",
+			"value": ""
+		}
+	]
+}
