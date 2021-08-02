@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: delivery
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: delivery
+      chartPath: delivery-chart
+      skipBuildDependencies: true
+      values:
+        image: delivery

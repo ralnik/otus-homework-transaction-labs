@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: warehouse-proxy
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: warehouse
+          servicePort: 9000
+        path: /warehouse/create
+      - backend:
+          serviceName: warehouse
+          servicePort: 9000
+        path: /warehouse/test
+      - backend:
+          serviceName: warehouse
+          servicePort: 9000
+        path: /warehouse/config
+      - backend:
+          serviceName: warehouse
+          servicePort: 9000
+        path: /warehouse/

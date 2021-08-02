@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: payment-proxy
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: payment
+          servicePort: 9000
+        path: /payment/create
+      - backend:
+          serviceName: payment
+          servicePort: 9000
+        path: /payment/test
+      - backend:
+          serviceName: payment
+          servicePort: 9000
+        path: /payment/config
+      - backend:
+          serviceName: payment
+          servicePort: 9000
+        path: /payment/

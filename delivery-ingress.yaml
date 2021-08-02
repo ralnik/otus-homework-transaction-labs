@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: delivery-proxy
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: delivery
+          servicePort: 9000
+        path: /delivery/create
+      - backend:
+          serviceName: delivery
+          servicePort: 9000
+        path: /delivery/test
+      - backend:
+          serviceName: delivery
+          servicePort: 9000
+        path: /delivery/config
+      - backend:
+          serviceName: delivery
+          servicePort: 9000
+        path: /delivery/

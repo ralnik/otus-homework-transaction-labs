@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: payment
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: payment
+      chartPath: payment-chart
+      skipBuildDependencies: true
+      values:
+        image: payment

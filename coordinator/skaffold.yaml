@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: coordinator
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: coordinator
+      chartPath: coordinator-chart
+      skipBuildDependencies: true
+      values:
+        image: coordinator

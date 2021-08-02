@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: warehouse
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: warehouse
+      chartPath: warehouse-chart
+      skipBuildDependencies: true
+      values:
+        image: warehouse

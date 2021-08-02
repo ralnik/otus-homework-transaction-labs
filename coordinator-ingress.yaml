@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: coordinator-proxy
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: coordinator
+          servicePort: 9000
+        path: /coordinator/create
+      - backend:
+          serviceName: coordinator
+          servicePort: 9000
+        path: /coordinator/test
+      - backend:
+          serviceName: coordinator
+          servicePort: 9000
+        path: /coordinator/config
+      - backend:
+          serviceName: coordinator
+          servicePort: 9000
+        path: /coordinator/
